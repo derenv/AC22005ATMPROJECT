@@ -1,0 +1,11 @@
+C:\Users\deren\Documents\2 - COMPUTING\9 - AI & Algorithms\RESEARCH\Multithread-forms\Multithread-forms\bin\Debug\Multithread-forms.exe.config
+C:\Users\deren\Documents\2 - COMPUTING\9 - AI & Algorithms\RESEARCH\Multithread-forms\Multithread-forms\bin\Debug\Multithread-forms.exe
+C:\Users\deren\Documents\2 - COMPUTING\9 - AI & Algorithms\RESEARCH\Multithread-forms\Multithread-forms\bin\Debug\Multithread-forms.pdb
+C:\Users\deren\Documents\2 - COMPUTING\9 - AI & Algorithms\RESEARCH\Multithread-forms\Multithread-forms\obj\Debug\Multithread-forms.csprojResolveAssemblyReference.cache
+C:\Users\deren\Documents\2 - COMPUTING\9 - AI & Algorithms\RESEARCH\Multithread-forms\Multithread-forms\obj\Debug\Multithread_forms.mainform.resources
+C:\Users\deren\Documents\2 - COMPUTING\9 - AI & Algorithms\RESEARCH\Multithread-forms\Multithread-forms\obj\Debug\Multithread_forms.testform.resources
+C:\Users\deren\Documents\2 - COMPUTING\9 - AI & Algorithms\RESEARCH\Multithread-forms\Multithread-forms\obj\Debug\Multithread_forms.Properties.Resources.resources
+C:\Users\deren\Documents\2 - COMPUTING\9 - AI & Algorithms\RESEARCH\Multithread-forms\Multithread-forms\obj\Debug\Multithread-forms.csproj.GenerateResource.Cache
+C:\Users\deren\Documents\2 - COMPUTING\9 - AI & Algorithms\RESEARCH\Multithread-forms\Multithread-forms\obj\Debug\Multithread-forms.csproj.CoreCompileInputs.cache
+C:\Users\deren\Documents\2 - COMPUTING\9 - AI & Algorithms\RESEARCH\Multithread-forms\Multithread-forms\obj\Debug\Multithread-forms.exe
+C:\Users\deren\Documents\2 - COMPUTING\9 - AI & Algorithms\RESEARCH\Multithread-forms\Multithread-forms\obj\Debug\Multithread-forms.pdb
