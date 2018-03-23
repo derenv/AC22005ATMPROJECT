@@ -26,6 +26,11 @@ namespace WindowsFormsApp1
         //output text label
         Label[] output_labels;
 
+        //custom input
+        Button custom_enter;
+        TextBox custom_input;
+        int custom_amount;
+
         public FAtm()
         {
             //form resize
@@ -69,6 +74,20 @@ namespace WindowsFormsApp1
             //option labels
             output_labels = new Label[3];
 
+            //custom input button
+            custom_enter = new Button();
+            custom_enter.SetBounds(175, 200, 100, 25);
+            custom_enter.Click += new EventHandler(this.custom_button_Click);
+            custom_enter.Text = "Enter Value";
+
+            //custom input textbox custom_input_KeyPress
+            custom_input = new TextBox();
+            custom_input.SetBounds(150, 170, 150, 50);
+            custom_input.KeyPress += new KeyPressEventHandler(this.custom_input_KeyPress);
+
+            //custom input value
+            custom_amount = 0;
+
             //creation loop
             for (int i = 0; i < 4; i++)
             {
@@ -85,6 +104,7 @@ namespace WindowsFormsApp1
                 right_lbls[i].SetBounds(300, 65 + (70 * i), 50, 50);
             }
 
+            //creation loop
             for (int j = 0; j < 3; j++)
             {
                 //title labels
@@ -93,6 +113,7 @@ namespace WindowsFormsApp1
                 output_labels[j].Font = new Font("Arial", 10, FontStyle.Regular);
                 output_labels[j].TextAlign = ContentAlignment.TopCenter;
             }
+
             //setup buttons with main menu
             menu_setup("main");
         }
@@ -233,6 +254,48 @@ namespace WindowsFormsApp1
                 right_lbls[3].Text = "";
                 right_btns[3].Tag = "null";
             }
+            else if (menu_type.Equals("custom"))
+            {
+                //top title text
+                output_labels[0].Text = "==Other amount==";
+                //output text
+                output_labels[1].Text = "";
+                //bottom title text
+                output_labels[2].Text = "==Other amount==";
+
+                //option text
+                left_btns[0].Text = "";
+                left_lbls[0].Text = "";
+                left_btns[0].Tag = "null";
+
+                left_btns[1].Text = "";
+                left_lbls[1].Text = "";
+                left_btns[1].Tag = "null";
+
+                left_btns[2].Text = "";
+                left_lbls[2].Text = "";
+                left_btns[2].Tag = "null";
+
+                left_btns[3].Text = "";
+                left_lbls[3].Text = "";
+                left_btns[3].Tag = "null";
+
+                right_btns[0].Text = "";
+                right_lbls[0].Text = "";
+                right_btns[0].Tag = "null";
+
+                right_btns[1].Text = "";
+                right_lbls[1].Text = "";
+                right_btns[1].Tag = "null";
+
+                right_btns[2].Text = "";
+                right_lbls[2].Text = "";
+                right_btns[2].Tag = "null";
+
+                right_btns[3].Text = "";
+                right_lbls[3].Text = "Exit";
+                right_btns[3].Tag = "exit";
+            }
             else if (menu_type.Equals("withdraw"))
             {
                 //top title text
@@ -272,7 +335,7 @@ namespace WindowsFormsApp1
                 right_btns[2].Tag = "withdraw-80";
 
                 right_btns[3].Text = "";
-                right_lbls[3].Text = "Custom";
+                right_lbls[3].Text = "Other";
                 right_btns[3].Tag = "withdraw-custom";
             }
             else if (menu_type.Equals("deposit"))
@@ -314,7 +377,7 @@ namespace WindowsFormsApp1
                 right_btns[2].Tag = "deposit-80";
 
                 right_btns[3].Text = "";
-                right_lbls[3].Text = "Custom";
+                right_lbls[3].Text = "Other";
                 right_btns[3].Tag = "deposit-custom";
             }
         }
@@ -342,6 +405,12 @@ namespace WindowsFormsApp1
                 //add output labels to form
                 Controls.Add(output_labels[j]);
             }
+
+            //add custom input items
+            Controls.Add(custom_enter);
+            Controls.Add(custom_input);
+            custom_enter.Hide();
+            custom_input.Hide();
         }
 
         /*
@@ -369,7 +438,78 @@ namespace WindowsFormsApp1
                 return false;
             }
         }
-        
+
+        /*
+         * submit custom amount for deposit/withdrawl
+         */
+        private void custom_button_Click(object sender, EventArgs e)
+        {
+            if (custom_input.Equals(""))
+            {
+                //handle empty input
+            }
+            else
+            {
+                try
+                {
+                    //get input number
+                    custom_amount = int.Parse(custom_input.Text);
+
+                    //attempt operation
+                    if (custom_enter.Tag.Equals("withdraw"))
+                    {
+                        //TEST
+                        Console.WriteLine("..ATTEMPTING TO WITHDRAW £" + custom_amount + "..");
+
+                        //call withdraw method using cash_value[1]
+                        //
+
+                        //TEST
+                        Console.WriteLine("..NO RESULT..");
+                    }
+                    else if (custom_enter.Tag.Equals("deposit"))
+                    {
+                        //TEST
+                        Console.WriteLine("..ATTEMPTING TO DEPOSIT £" + custom_amount + "..");
+
+                        //call deposit method using cash_value[1]
+                        //
+
+                        //TEST
+                        Console.WriteLine("..NO RESULT..");
+                    }
+
+                    //hide input
+                    custom_enter.Hide();
+                    custom_input.Hide();
+                    output_labels[1].Show();
+
+                    //set correct menu
+                    menu_setup("post_transaction");
+                }
+                catch(Exception)
+                {
+                    //handle invalid input number
+                }
+            }
+        }
+
+        /*
+         * allow only digits (no decimals) to be entered as custom input
+         * modified code snippet from:
+         * https://stackoverflow.com/questions/463299/how-do-i-make-a-textbox-that-only-accepts-numbers
+         */
+        private void custom_input_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //TEST
+            Console.WriteLine("char entered : "+e.KeyChar);
+            
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)/* && (e.KeyChar != '.')*/)
+            {
+                e.Handled = true;
+            }
+        }
+
         /*
          * submit account no. and PIN for validation
          * if valid display 
@@ -395,31 +535,33 @@ namespace WindowsFormsApp1
                 //if withdraw value
                 if (cash_value.Length == 2)
                 {
-                    //user entered value
-                    //
-
                     if (cash_value[1].Equals("custom"))
                     {
                         //TEST
                         Console.WriteLine("..CUSTOM VALUE WITHDRAW..");
 
                         //get custom amount
-                        //
+                        menu_setup("custom");
+                        custom_enter.Tag = "withdraw";
+                        custom_input.Text = "";
+                        custom_enter.Show();
+                        custom_input.Show();
+                        output_labels[1].Hide();
                     }
                     else
                     {
                         //TEST
                         Console.WriteLine("..ATTEMPTING TO WITHDRAW £" + cash_value[1] + "..");
+
+                        //call withdraw method using cash_value[1]
+                        //
+
+                        //TEST
+                        Console.WriteLine("..NO RESULT..");
+
+                        //set correct menu
+                        menu_setup("post_transaction");
                     }
-
-                    //call withdraw method using cash_value[1]
-                    //
-
-                    //TEST
-                    Console.WriteLine("..NO RESULT..");
-
-                    //set correct menu
-                    menu_setup("post_transaction");
                 }
                 else
                 {
@@ -429,8 +571,7 @@ namespace WindowsFormsApp1
             }
             else if (cash_value[0].Equals("deposit"))
             {
-
-                //if withdraw value
+                //if deposit value
                 if (cash_value.Length == 2)
                 {
                     if (cash_value[1].Equals("custom"))
@@ -439,22 +580,27 @@ namespace WindowsFormsApp1
                         Console.WriteLine("..CUSTOM VALUE DEPOSIT..");
 
                         //get custom amount
-                        //
+                        menu_setup("custom");
+                        custom_enter.Tag = "deposit";
+                        custom_input.Text = "";
+                        custom_enter.Show();
+                        custom_input.Show();
+                        output_labels[1].Hide();
                     }
                     else
                     {
                         //TEST
                         Console.WriteLine("..ATTEMPTING TO DEPOSIT £" + cash_value[1] + "..");
+                        
+                        //call deposit method using cash_value[1]
+                        //
+
+                        //TEST
+                        Console.WriteLine("..NO RESULT..");
+
+                        //set correct menu
+                        menu_setup("post_transaction");
                     }
-
-                    //call withdraw method using cash_value[1]
-                    //
-
-                    //TEST
-                    Console.WriteLine("..NO RESULT..");
-
-                    //set correct menu
-                    menu_setup("post_transaction");
                 }
                 else
                 {
