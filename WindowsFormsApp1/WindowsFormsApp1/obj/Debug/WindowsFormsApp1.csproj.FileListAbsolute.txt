@@ -1,0 +1,22 @@
+C:\Users\The_Mini_Ken\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\The_Mini_Ken\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\The_Mini_Ken\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\The_Mini_Ken\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojResolveAssemblyReference.cache
+C:\Users\The_Mini_Ken\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\The_Mini_Ken\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.Cache
+C:\Users\The_Mini_Ken\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\Users\The_Mini_Ken\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\The_Mini_Ken\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\The_Mini_Ken\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FBank.resources
+C:\Users\The_Mini_Ken\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FAtm.resources
+C:\Users\deren\Documents\2 - COMPUTING\9 - AI & Algorithms\RESEARCH\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\deren\Documents\2 - COMPUTING\9 - AI & Algorithms\RESEARCH\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\deren\Documents\2 - COMPUTING\9 - AI & Algorithms\RESEARCH\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\deren\Documents\2 - COMPUTING\9 - AI & Algorithms\RESEARCH\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojResolveAssemblyReference.cache
+C:\Users\deren\Documents\2 - COMPUTING\9 - AI & Algorithms\RESEARCH\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FAtm.resources
+C:\Users\deren\Documents\2 - COMPUTING\9 - AI & Algorithms\RESEARCH\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FBank.resources
+C:\Users\deren\Documents\2 - COMPUTING\9 - AI & Algorithms\RESEARCH\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\deren\Documents\2 - COMPUTING\9 - AI & Algorithms\RESEARCH\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.Cache
+C:\Users\deren\Documents\2 - COMPUTING\9 - AI & Algorithms\RESEARCH\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\Users\deren\Documents\2 - COMPUTING\9 - AI & Algorithms\RESEARCH\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\deren\Documents\2 - COMPUTING\9 - AI & Algorithms\RESEARCH\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
