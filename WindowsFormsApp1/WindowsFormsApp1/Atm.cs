@@ -24,7 +24,7 @@ namespace WindowsFormsApp1
         Button[] right_btns;
 
         //output text label
-        Label output_label;
+        Label[] output_labels;
 
         public FAtm()
         {
@@ -66,6 +66,9 @@ namespace WindowsFormsApp1
             left_btns = new Button[4];
             right_btns = new Button[4];
 
+            //option labels
+            output_labels = new Label[3];
+
             //creation loop
             for (int i = 0; i < 4; i++)
             {
@@ -79,15 +82,17 @@ namespace WindowsFormsApp1
                 right_btns[i].SetBounds(350, 50 + (70 * i), 50, 50);
                 right_btns[i].Click += new EventHandler(this.atm_button_Click);
                 right_lbls[i] = new Label();
-                right_lbls[i].SetBounds(410, 65 + (70 * i), 70, 70);
+                right_lbls[i].SetBounds(300, 65 + (70 * i), 50, 50);
             }
 
-            //output label
-            output_label = new Label();
-            output_label.SetBounds(150, 50, 150, 150);
-            output_label.Font = new Font("Arial", 10, FontStyle.Regular);
-            output_label.TextAlign = ContentAlignment.TopCenter;
-
+            for (int j = 0; j < 3; j++)
+            {
+                //title labels
+                output_labels[j] = new Label();
+                output_labels[j].SetBounds(150, 50 + (j * 120), 150, 100);
+                output_labels[j].Font = new Font("Arial", 10, FontStyle.Regular);
+                output_labels[j].TextAlign = ContentAlignment.TopCenter;
+            }
             //setup buttons with main menu
             menu_setup("main");
         }
@@ -101,25 +106,29 @@ namespace WindowsFormsApp1
         {
             if (menu_type.Equals("main"))
             {
+                //top title text
+                output_labels[0].Text = "==Main Menu==";
                 //output text
-                output_label.Text = "==Main Menu==\r\n\r\nWelcome to our ATM!\r\n\r\n==Main Menu==";
-                
+                output_labels[1].Text = "Welcome to our ATM!";
+                //bottom title text
+                output_labels[2].Text = "==Main Menu==";
+
                 //option text
                 left_btns[0].Text = "";
                 left_lbls[0].Text = "Balance";
                 left_btns[0].Tag = "balance";
 
                 left_btns[1].Text = "";
-                left_lbls[1].Text = "Withdraw";
-                left_btns[1].Tag = "withdraw";
+                left_lbls[1].Text = "Deposit";
+                left_btns[1].Tag = "deposit";
 
                 left_btns[2].Text = "";
-                left_lbls[2].Text = "";
-                left_btns[2].Tag = "null";
+                left_lbls[2].Text = "Withdraw";
+                left_btns[2].Tag = "withdraw";
 
                 left_btns[3].Text = "";
-                left_lbls[3].Text = "";
-                left_btns[3].Tag = "null";
+                left_lbls[3].Text = "Exit";
+                left_btns[3].Tag = "exit";
 
                 right_btns[0].Text = "";
                 right_lbls[0].Text = "";
@@ -139,14 +148,15 @@ namespace WindowsFormsApp1
             }
             else if (menu_type.Equals("balance"))
             {
-                //output text
-                output_label.Text = "==Check Balance==\r\n\r\n";
+                //top title text
+                output_labels[0].Text = "==Check Balance==";
 
                 //get balance
                 String balance = "";
+                output_labels[1].Text = balance;
 
-
-                output_label.Text = output_label.Text + balance + "\r\n\r\n==Check Balance==";
+                //bottom title text
+                output_labels[2].Text = "==Check Balance==";
 
                 //option text
                 left_btns[0].Text = "";
@@ -181,10 +191,14 @@ namespace WindowsFormsApp1
                 right_lbls[3].Text = "";
                 right_btns[3].Tag = "null";
             }
-            else if (menu_type.Equals("post_withdraw"))
+            else if (menu_type.Equals("post_transaction"))
             {
+                //top title text
+                output_labels[0].Text = "";
                 //output text
-                output_label.Text = "==Withdraw Cash==\r\n\r\nWould you like to perform another transaction?\r\n\r\n==Withdraw Cash==";
+                output_labels[1].Text = "Would you like to perform another transaction?";
+                //bottom title text
+                output_labels[2].Text = "";
 
                 //option text
                 left_btns[0].Text = "";
@@ -221,8 +235,12 @@ namespace WindowsFormsApp1
             }
             else if (menu_type.Equals("withdraw"))
             {
+                //top title text
+                output_labels[0].Text = "==Withdraw Cash==";
                 //output text
-                output_label.Text = "==Withdraw Cash==\r\n\r\nPlease select amount to withdraw\r\n\r\n==Withdraw Cash==";
+                output_labels[1].Text = "Please select amount to withdraw";
+                //bottom title text
+                output_labels[2].Text = "==Withdraw Cash==";
 
                 //option text
                 left_btns[0].Text = "";
@@ -238,51 +256,92 @@ namespace WindowsFormsApp1
                 left_btns[2].Tag = "withdraw-50";
 
                 left_btns[3].Text = "";
-                left_lbls[3].Text = "£70";
-                left_btns[3].Tag = "withdraw-70";
+                left_lbls[3].Text = "£100";
+                left_btns[3].Tag = "withdraw-100";
 
                 right_btns[0].Text = "";
-                right_btns[0].Text = "£20";
+                right_lbls[0].Text = "£20";
                 right_btns[0].Tag = "withdraw-20";
 
                 right_btns[1].Text = "";
-                right_btns[1].Text = "£40";
+                right_lbls[1].Text = "£40";
                 right_btns[1].Tag = "withdraw-40";
 
                 right_btns[2].Text = "";
-                right_btns[2].Text = "£60";
-                right_btns[2].Tag = "withdraw-60";
+                right_lbls[2].Text = "£80";
+                right_btns[2].Tag = "withdraw-80";
 
                 right_btns[3].Text = "";
-                right_btns[3].Text = "£80";
-                right_btns[3].Tag = "withdraw-80";
+                right_lbls[3].Text = "Custom";
+                right_btns[3].Tag = "withdraw-custom";
+            }
+            else if (menu_type.Equals("deposit"))
+            {
+                //top title text
+                output_labels[0].Text = "==Deposit Cash==";
+                //output text
+                output_labels[1].Text = "Please select amount to deposit";
+                //bottom title text
+                output_labels[2].Text = "==Deposit Cash==";
+
+                //option text
+                left_btns[0].Text = "";
+                left_lbls[0].Text = "£10";
+                left_btns[0].Tag = "deposit-10";
+
+                left_btns[1].Text = "";
+                left_lbls[1].Text = "£30";
+                left_btns[1].Tag = "deposit-30";
+
+                left_btns[2].Text = "";
+                left_lbls[2].Text = "£50";
+                left_btns[2].Tag = "deposit-50";
+
+                left_btns[3].Text = "";
+                left_lbls[3].Text = "£100";
+                left_btns[3].Tag = "deposit-100";
+
+                right_btns[0].Text = "";
+                right_lbls[0].Text = "£20";
+                right_btns[0].Tag = "deposit-20";
+
+                right_btns[1].Text = "";
+                right_lbls[1].Text = "£40";
+                right_btns[1].Tag = "deposit-40";
+
+                right_btns[2].Text = "";
+                right_lbls[2].Text = "£80";
+                right_btns[2].Tag = "deposit-80";
+
+                right_btns[3].Text = "";
+                right_lbls[3].Text = "Custom";
+                right_btns[3].Tag = "deposit-custom";
             }
         }
 
         /*
          * show the options of the atm
-         * 
+         * specifically, all input buttons & their labels AND output labels
          * 
          */
         private void new_atm_show(object sender, EventArgs e)
         {
-            //creation loop
+            //add to form loop
             for (int i = 0; i < 4; i++)
             {
-                //TEST
-                Console.WriteLine("leftbtn  "+i+" pos : "+left_btns[i].Location);
-                Console.WriteLine("leftlbl  " + i + " pos : " + left_lbls[i].Location);
-                Console.WriteLine("rightbtn " + i + " pos : " + right_btns[i].Location);
-                Console.WriteLine("rightlbl " + i + " pos : " + right_btns[i].Location);
-
-                //add to form
+                //add input buttons &n labels to form
                 Controls.Add(left_btns[i]);
                 Controls.Add(left_lbls[i]);
                 Controls.Add(right_btns[i]);
                 Controls.Add(right_lbls[i]);
             }
 
-            Controls.Add(output_label);
+            //add to form loop
+            for (int j = 0; j < 3; j++)
+            {
+                //add output labels to form
+                Controls.Add(output_labels[j]);
+            }
         }
 
         /*
@@ -336,16 +395,66 @@ namespace WindowsFormsApp1
                 //if withdraw value
                 if (cash_value.Length == 2)
                 {
-                    //TEST
-                    Console.WriteLine("..ATTEMPTING TO WITHDRAW £" + cash_value[1] + "..");
+                    //user entered value
+                    //
+
+                    if (cash_value[1].Equals("custom"))
+                    {
+                        //TEST
+                        Console.WriteLine("..CUSTOM VALUE WITHDRAW..");
+
+                        //get custom amount
+                        //
+                    }
+                    else
+                    {
+                        //TEST
+                        Console.WriteLine("..ATTEMPTING TO WITHDRAW £" + cash_value[1] + "..");
+                    }
 
                     //call withdraw method using cash_value[1]
+                    //
 
                     //TEST
                     Console.WriteLine("..NO RESULT..");
 
                     //set correct menu
-                    menu_setup("post_withdraw");
+                    menu_setup("post_transaction");
+                }
+                else
+                {
+                    //set correct menu
+                    menu_setup(sending_button.Tag.ToString());
+                }
+            }
+            else if (cash_value[0].Equals("deposit"))
+            {
+
+                //if withdraw value
+                if (cash_value.Length == 2)
+                {
+                    if (cash_value[1].Equals("custom"))
+                    {
+                        //TEST
+                        Console.WriteLine("..CUSTOM VALUE DEPOSIT..");
+
+                        //get custom amount
+                        //
+                    }
+                    else
+                    {
+                        //TEST
+                        Console.WriteLine("..ATTEMPTING TO DEPOSIT £" + cash_value[1] + "..");
+                    }
+
+                    //call withdraw method using cash_value[1]
+                    //
+
+                    //TEST
+                    Console.WriteLine("..NO RESULT..");
+
+                    //set correct menu
+                    menu_setup("post_transaction");
                 }
                 else
                 {
